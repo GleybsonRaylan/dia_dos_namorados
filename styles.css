@@ -1,0 +1,686 @@
+/* Reset e estilos base com toque romântico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1a0033, #4a0042);
+  color: #fff0f5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  position: relative;
+  padding-bottom: 100px;
+  line-height: 1.6;
+}
+
+/* Efeito de brilho suave no fundo */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(255, 105, 180, 0.15) 0%, transparent 30%),
+              radial-gradient(circle at 80% 70%, rgba(255, 182, 193, 0.15) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Container principal com borda romântica */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: clamp(15px, 5vw, 30px);
+  text-align: center;
+  margin: auto;
+  position: relative;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid rgba(255, 105, 180, 0.3);
+  border-radius: 15px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Carousel - Estilo romântico */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: min(800px, 90vw);
+  margin: 0 auto clamp(30px, 5vh, 50px);
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 
+              0 0 0 1px rgba(255, 182, 193, 0.2),
+              inset 0 0 20px rgba(255, 105, 180, 0.1);
+  aspect-ratio: 4/5;
+  background: rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.carousel-container:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 
+              0 0 0 1px rgba(255, 182, 193, 0.3),
+              inset 0 0 30px rgba(255, 105, 180, 0.2);
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.33, 1, 0.68, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel-slide img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.carousel-slide.active img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(255, 105, 180, 0.3);
+}
+
+/* Controles do carrossel em forma de coração */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 105, 180, 0.8);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  opacity: 0;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+.carousel-container:hover .carousel-control {
+  opacity: 1;
+}
+
+.carousel-control:hover {
+  background: rgba(255, 20, 147, 0.9);
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 6px 20px rgba(255, 20, 147, 0.6);
+}
+
+.carousel-control.prev {
+  left: 20px;
+}
+
+.carousel-control.next {
+  right: 20px;
+}
+
+/* Indicadores em forma de coração */
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.indicator.active {
+  background: #ff69b4;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+}
+
+.indicator:hover {
+  background: #ff1493;
+}
+
+/* Conteúdo romântico */
+.content {
+  position: relative;
+  padding: clamp(15px, 3vw, 25px);
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-bottom: clamp(15px, 3vh, 25px);
+  font-weight: 600;
+  line-height: 1.3;
+  text-shadow: 0 2px 10px rgba(255, 105, 180, 0.5);
+  color: #ffebf3;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+h1::after {
+  content: '❤';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6em;
+  opacity: 0.7;
+  animation: pulse 2s infinite;
+}
+
+.pink-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff69b4, #ff1493, #ff69b4, transparent);
+  width: 60%;
+  margin: 15px auto;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.description {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: #f8e1e7;
+  margin: clamp(15px, 3vh, 25px) 0 clamp(10px, 2vh, 20px);
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+}
+
+.time {
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  color: #ff69b4;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  line-height: 1.4;
+  padding: 10px 15px;
+  display: inline-block;
+  background: rgba(255, 105, 180, 0.1);
+  border-radius: 50px;
+  margin-top: 10px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 105, 180, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+}
+
+/* Tela inicial romântica */
+.start-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f0022, #3a0033);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 1;
+  transition: opacity 1.2s ease;
+  overflow: hidden;
+}
+
+.start-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(255,105,180,0.05)" d="M30,50 Q50,30 70,50 Q50,70 30,50"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.start-screen.fade-out {
+  opacity: 0;
+}
+
+.start-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1.5s ease;
+}
+
+.start-button {
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  color: white;
+  border: none;
+  padding: 18px 35px;
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.start-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(255, 20, 147, 0.7);
+  letter-spacing: 2px;
+}
+
+.start-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.start-button:hover::before {
+  transform: translateX(100%);
+}
+
+/* Corações flutuantes melhorados */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.floating-hearts .heart {
+  position: absolute;
+  font-size: clamp(20px, 5vw, 40px);
+  color: #ff69b4;
+  opacity: 0;
+  animation: floatAround 8s ease-in-out infinite;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.8));
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+}
+
+@keyframes floatAround {
+  0% {
+    transform: translate(0, 100vh) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-30px, 50vh) scale(1.2) rotate(20deg);
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(30px, -20vh) scale(1.5) rotate(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.3); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* Player de música romântico */
+.music-player {
+  position: fixed;
+  bottom: max(env(safe-area-inset-bottom, 20px), 20px);
+  left: max(env(safe-area-inset-left, 20px), 20px);
+  background: rgba(40, 0, 30, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 18px;
+  width: min(350px, calc(100vw - 40px));
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(255, 105, 180, 0.2);
+  border: 1px solid rgba(255, 182, 193, 0.2);
+  transform: translateX(-400px);
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  visibility: hidden;
+}
+
+.music-player.animate-in {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.music-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.album-cover {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.4);
+  transition: all 0.5s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.music-player:hover .album-cover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.song-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+.song-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffebf3;
+  letter-spacing: 0.5px;
+}
+
+.artist {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #ffb6c1;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.progress-bar {
+  flex-grow: 1;
+  height: 6px;
+  background: rgba(255, 182, 193, 0.3);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: height 0.3s ease;
+}
+
+.progress-bar:hover {
+  height: 8px;
+}
+
+.progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff69b4, #ff1493, #ff69b4);
+  border-radius: 6px;
+  transition: width 0.1s linear;
+  position: relative;
+}
+
+.progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  background: white;
+  border-radius: 6px;
+  opacity: 0.7;
+}
+
+.play-pause-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff69b4;
+  transition: all 0.4s ease;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.play-pause-btn:hover {
+  color: #ff1493;
+  background: rgba(255, 105, 180, 0.2);
+  transform: scale(1.1);
+}
+
+.wave-animation {
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+  height: 24px;
+}
+
+.wave-animation span {
+  display: block;
+  width: 5px;
+  height: 100%;
+  background-color: currentColor;
+  border-radius: 3px;
+  animation: wave 1.4s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+.wave-animation span:nth-child(1) {
+  animation-delay: -0.24s;
+  height: 60%;
+}
+
+.wave-animation span:nth-child(2) {
+  animation-delay: -0.12s;
+  height: 80%;
+}
+
+.wave-animation span:nth-child(3) {
+  animation-delay: 0;
+  height: 100%;
+}
+
+@keyframes wave {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+
+/* Efeitos especiais */
+.romantic-sparkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  animation: sparkle 2s ease-out;
+  filter: blur(1px);
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+/* Responsividade adicional */
+@media (max-width: 600px) {
+  .carousel-container {
+    aspect-ratio: 3/4;
+  }
+  
+  .carousel-control {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+  
+  .music-player {
+    width: calc(100vw - 30px);
+    left: 15px;
+    padding: 15px;
+  }
+  
+  .album-cover {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .play-pause-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+/* Estilos para os novos efeitos românticos */
+.romantic-message {
+  position: fixed;
+  background: rgba(255, 105, 180, 0.9);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  box-shadow: 0 5px 20px rgba(255, 105, 180, 0.5);
+  z-index: 1002;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+  text-align: center;
+  max-width: 80%;
+}
+
+.romantic-message.welcome {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  background: rgba(255, 20, 147, 0.9);
+}
+
+.time-unit {
+  font-weight: 700;
+  color: #ff69b4;
+  font-size: 1.1em;
+}
+
+.time-label {
+  font-weight: 500;
+  color: #ffb6c1;
+}
+
+.pulse {
+  animation: pulse 1s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.romantic-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255,105,180,0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}

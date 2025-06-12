@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nosso Memorial</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Tela inicial -->
+  <div id="start-screen" class="start-screen">
+    <div class="start-content">
+      <button id="start-button" class="start-button">Clique aqui</button>
+    </div>
+    <div id="floating-hearts" class="floating-hearts"></div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <main class="container" style="display: none;">
+    <h1>Nosso Memorial</h1>
+    <div class="carousel-container">
+      <div class="carousel">
+        <!-- Slides de fotos - você pode adicionar quantas quiser -->
+        <div class="carousel-slide active">
+          <img src="img/1.jpg" alt="Memorial 1" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/2.jpg" alt="Memorial 2" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/3.jpg" alt="Memorial 3" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/4.jpg" alt="Memorial 4" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/5.jpg" alt="Memorial 5" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/6.jpg" alt="Memorial 6" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/7.jpg" alt="Memorial 7" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/8.jpg" alt="Memorial 8" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/9.jpg" alt="Memorial 9" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/10.jpg" alt="Memorial 10" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/11.jpg" alt="Memorial 11" />
+        </div>
+        <div class="carousel-slide">
+          <img src="img/12.jpg" alt="Memorial 12" />
+        </div>
+                <div class="carousel-slide">
+          <img src="img/13.jpg" alt="Memorial 13" />
+        </div>
+        <!-- Adicione mais slides conforme necessário -->
+      </div>
+      
+      <!-- Controles do carrossel -->
+      <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+      
+      <!-- Indicadores de slides -->
+      <div class="carousel-indicators">
+        <span class="indicator active" onclick="goToSlide(0)"></span>
+        <span class="indicator" onclick="goToSlide(1)"></span>
+        <span class="indicator" onclick="goToSlide(2)"></span>
+        <span class="indicator" onclick="goToSlide(3)"></span>
+        <!-- Adicione mais indicadores conforme adicionar slides -->
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="pink-line"></div>
+      <h1 class="description">Eu te amo tanto meu amor, Obrigado por compartilhar uma vida ao meu lado</h1>
+      <h1 class="description">Que esse cronômetro, que marcou o começo de tudo, jamais conheça o fim. </h1>
+
+      <div class="time" id="timer">00:00:00</div>
+    </div>
+  </main>
+
+  <!-- Player de música -->
+  <div class="music-player" id="music-player">
+    <div class="music-info">
+      <img src="img/capa.jpg" alt="Album Cover" class="album-cover" />
+      <div class="song-details">
+        <span class="song-title">Perfect</span>
+        <span class="artist">Ed Sheeran</span>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <audio id="song" src="123.mp3"></audio>
+      <button class="play-pause-btn" id="play-pause-btn" aria-label="Play/Pause">
+        <div class="wave-animation">
+          <span></span><span></span><span></span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  
+  </script>
+</body>
+</html>
